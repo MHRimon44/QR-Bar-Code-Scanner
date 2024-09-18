@@ -4,12 +4,12 @@ const StackLayout = () => {
   return (
     <Stack
       screenOptions={{
-        headerShown: false, // Disable header if needed
+        headerShown: false,
       }}
     >
       <Stack.Screen
-        name="index"  // This 'index' will point to the default screen in your route
-        options={{ headerShown: false }} // You can control header visibility here
+        name="index"
+        options={{ headerShown: false }} 
       />
     </Stack>
   );

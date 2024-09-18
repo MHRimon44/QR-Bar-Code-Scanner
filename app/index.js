@@ -1,30 +1,26 @@
-import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router';
+import React from "react";
+import { View, Text, TouchableOpacity, StatusBar } from "react-native";
+import { useRouter } from "expo-router";
+import { Ionicons } from "@expo/vector-icons"; // For icons
+import styles from "../style";
 
 export default function HomeScreen() {
   const router = useRouter();
 
   return (
     <View style={styles.container}>
+      {/* Enhanced Title */}
+      <StatusBar barStyle="dark-content" />
       <Text style={styles.title}>Welcome to QR Scanner App!</Text>
-      <Button
-        title="Open Scanner"
-        onPress={() => router.push('/ScannerScreen')}  // Navigate to the Scanner screen
-      />
+
+      {/* Button with icon */}
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push("/ScannerScreen")}
+      >
+        <Ionicons name="qr-code-outline" size={24} color="white" />
+        <Text style={styles.buttonText}>Open Scanner</Text>
+      </TouchableOpacity>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-});
